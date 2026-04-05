@@ -41,7 +41,7 @@ const SearchWeather = () => {
           onChange={handleInput} 
           value={city}/>
         </label>
-        <button onClick={handleSearchBtn} className="btn btn-accent join-item">Join</button>
+        <button onClick={handleSearchBtn} className="btn btn-accent join-item">Search</button>
       </div>
     </>
   );

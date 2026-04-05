@@ -4,9 +4,11 @@ import Loader from './Loader';
 
 const CurrentWeather = () => {
 
-const {current, loading} = useSelector((state) => state.weatherReducer)
+const {current, loading, error} = useSelector((state) => state.weatherReducer)
 
 if(loading) return <Loader />
+if(error) return <p className="text-error">Error: {error}</p>
+if(!current) return <p className="text-info">No current weather data available.</p>
 
   return (
     <div className="card bg-neutral text-neutral-content w-96">
