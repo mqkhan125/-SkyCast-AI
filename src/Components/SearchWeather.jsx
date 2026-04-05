@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCity } from '../Store/action/ActionWeather'
+import { fetchWeatherApi, setCity } from '../Store/action/ActionWeather'
 
 const SearchWeather = () => {
 
@@ -11,6 +11,10 @@ const SearchWeather = () => {
         dispatch(setCity(e.target.value))
         console.log(e.target.value)
     }
+
+  const handleSearchBtn = () => {
+    dispatch(fetchWeatherApi(city))
+  }
 
   return (
     <>
@@ -37,7 +41,7 @@ const SearchWeather = () => {
           onChange={handleInput} 
           value={city}/>
         </label>
-        <button className="btn btn-accent join-item">Join</button>
+        <button onClick={handleSearchBtn} className="btn btn-accent join-item">Join</button>
       </div>
     </>
   );
