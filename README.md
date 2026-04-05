@@ -49,5 +49,6 @@ Start Development Server
 
 Bash
 npm run dev
+---
 📝 Performance Logic Note
 Unlike standard weather apps, SkyCast intelligently parses the 3-hour interval data from OpenWeatherMap to present a daily summary, reducing cognitive load for the user while maintaining high data accuracy.
