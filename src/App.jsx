@@ -1,29 +1,37 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchWeatherApi } from './Store/action/ActionWeather'
-import SearchWeather from './Components/SearchWeather'
-import CurrentWeather from './Components/CurrentWeather'
-import ForecastDetails from './Components/ForecastDetails'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWeatherApi } from "./Store/action/ActionWeather";
+import SearchWeather from "./Components/SearchWeather";
+import CurrentWeather from "./Components/CurrentWeather";
+import ForecastDetails from "./Components/ForecastDetails";
 
 const App = () => {
-
-  const city = useSelector((state) => state.weatherReducer.city)
-  const dispatch = useDispatch()
+  const city = useSelector((state) => state.weatherReducer.city);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-     dispatch(fetchWeatherApi(city))
-  },[])
+    dispatch(fetchWeatherApi(city));
+  }, []);
 
   return (
-    <div className="p-10 flex flex-col items-center gap-12">
-      <div className='sticky top-0 z-10 w-full flex flex-col gap-4 bg-base-100 p-4 max-w-sm rounded-lg shadow-sm'>
-        <h1 className='text-3xl text-center'>Weather Dashboard</h1>
+    <div className="min-h-screen bg-slate-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900 via-slate-900 to-black p-6 flex flex-col items-center gap-8">
+      <div className="w-full flex flex-col items-center gap-6 mt-10">
+        <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 text-center">
+          SkyCast AI 🌤️
+        </h1>
         <SearchWeather />
       </div>
-      <CurrentWeather />
-      <ForecastDetails />
+
+      <div className="w-full flex flex-col items-center gap-10">
+        <CurrentWeather />
+        <ForecastDetails />
+      </div>
+
+      <footer className="mt-auto text-slate-500 text-sm py-6">
+        Weather App Dashboard • 2026
+      </footer>
     </div>
   );
-}
+};
 
-export default App
+export default App;
